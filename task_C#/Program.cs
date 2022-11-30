@@ -1,17 +1,22 @@
-﻿string[] ArrayStringShorter4Symbols(string[] arrayIn)
+﻿int CounterArrayStringShorter4Symbols(string[] arrayCount)
 {
     int count = default;
-    int index = default;
 
-    for (int i = 0; i < arrayIn.Length; i++)
+    for (int i = 0; i < arrayCount.Length; i++)
     {
-        if (arrayIn[i].Length <= 3)
+        if (arrayCount[i].Length <= 3)
         {
             count++;
         }
     }
 
+    return count;
+}
+
+string[] ArrayStringShorter4Symbols(string[] arrayIn, int count)
+{
     string[] arrayOut = new string[count];
+    int index = default;
 
     for (int j = 0; j < arrayIn.Length; j++)
     {
@@ -32,5 +37,11 @@ void PrintStringArray(string[] array)
 }
 
 string[] arrayCheck = {"hello", "2", "world", ":-)"};
-string[] arrayVerified = ArrayStringShorter4Symbols(arrayCheck);
-PrintStringArray(arrayVerified);
+int counterElems = CounterArrayStringShorter4Symbols(arrayCheck);
+string[] arrayVerified = ArrayStringShorter4Symbols(arrayCheck, counterElems);
+
+if (arrayVerified.Length == 0)
+{
+    Console.WriteLine("[]");
+}
+else PrintStringArray(arrayVerified);
